@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_example/counter_cubit/counter_cubit.dart';
 import 'main_screen.dart';
 
 void main() {
@@ -14,10 +16,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Bloc Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
-      home:  const MainScreen(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(create: (context) => CounterCubit())
+        ],
+        child: const MainScreen(),
+      ),
     );
   }
 }

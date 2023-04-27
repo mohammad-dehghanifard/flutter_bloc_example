@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_example/counter_bloc/screen.dart';
 
-import 'counter_cubit/screen.dart';
 
 class MainScreen extends StatelessWidget {
 
@@ -8,7 +8,7 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CounterCubitScreen();
+    return CounterBlocScreen();
   }
 
 }

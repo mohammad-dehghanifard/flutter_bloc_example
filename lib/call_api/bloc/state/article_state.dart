@@ -15,7 +15,8 @@ class LoadArticleErrorState extends ArticleState{
 }
 
 class LoadArticleSuccessState extends ArticleState{
-  late final List<ArticleModel> articleData;
+  final List<ArticleModel> articleData;
+  LoadArticleSuccessState(this.articleData);
   @override
   List<Object?> get props => [articleData];
 }

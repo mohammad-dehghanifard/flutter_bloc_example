@@ -4,13 +4,13 @@ import 'package:flutter_bloc_example/call_api/bloc/state/article_state.dart';
 import 'package:flutter_bloc_example/call_api/repository/api_repository.dart';
 
 class ArticleBloc extends Bloc<ArticleEvent,ArticleState>{
-  late final ApiRepository _repository;
-  ArticleBloc(this._repository) : super(ArticleLoadingState()){
+   final ApiRepository _repository = ApiRepository();
+  ArticleBloc() : super(ArticleLoadingState()){
    on<LoadArticleEvent>((event, emit) async {
      emit(ArticleLoadingState());
      final data = await _repository.fetchArticleData();
      if(data.isNotEmpty){
-       emit(LoadArticleSuccessState());
+       emit(LoadArticleSuccessState(data));
      }else{
        emit(LoadArticleErrorState());
      }
